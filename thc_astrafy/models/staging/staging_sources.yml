@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: raw
+    database: thc-astrafy-461109
+    schema: dbt_thc
+    tables:
+      - name: orders
+        description: "Order list"
+        columns:
+          - name: order_id
+            description: "ID of the order"
+          - name: client_id
+            description: "ID of the client"
+          - name: order_date
+            description: "Date of the order"
+
+      - name: sales
+        description: "Sales list"
+        columns:
+          - name: order_id
+            description: "ID of the order"
+          - name: product_id
+            description: "ID of the product"
+          - name: quantity
+            description: "Quantity sold"
