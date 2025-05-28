@@ -1,0 +1,31 @@
+[0m15:32:07.898576 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5E67BA830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5E598BB20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5E5989840>]}
+
+
+============================== 15:32:07.907579 | 848a21dd-ec84-4045-9373-e9cba764aacc ==============================
+[0m15:32:07.907579 [info ] [MainThread]: Running with dbt=1.9.5
+[0m15:32:07.910578 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\Shadow\\.dbt', 'log_path': 'logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt init thc_astrafy', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m15:32:08.178072 [warn ] [MainThread]: [ConfigFolderDirectory]: Unable to parse logging event dictionary. Failed to parse dir field: expected string or bytes-like object.. Dictionary: {'dir': WindowsPath('C:/Users/Shadow/.dbt')}
+[0m15:32:08.180572 [info ] [MainThread]: Creating dbt configuration folder at 
+[0m15:32:08.197109 [debug] [MainThread]: Starter project path: C:\Users\Shadow\AppData\Local\Programs\Python\Python310\lib\site-packages\dbt\include\starter_project
+[0m15:32:08.311574 [info ] [MainThread]: 
+Your new dbt project "thc_astrafy" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m15:32:08.322573 [info ] [MainThread]: Setting up your profile.
+[0m15:38:16.925982 [info ] [MainThread]: Profile thc_astrafy written to C:\Users\Shadow\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m15:38:16.931979 [debug] [MainThread]: Command `dbt init` succeeded at 15:38:16.931478 after 369.22 seconds
+[0m15:38:16.933479 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5E67BA830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F583D13670>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F583D13490>]}
+[0m15:38:16.935477 [debug] [MainThread]: Flushing usage events
+[0m15:38:17.341480 [debug] [MainThread]: An error was encountered while trying to flush usage events
