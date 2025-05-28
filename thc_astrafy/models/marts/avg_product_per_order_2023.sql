@@ -3,23 +3,24 @@
 -- Average number of products per order for each month in 2023
 WITH sales_per_order AS (
 	SELECT
-		order_id,
-		SUM(quantity) AS total_products,
-		DATE_TRUNC(sale_date, MONTH) AS month
+		ss.order_id,
+		SUM(ss.quantity) AS total_products,
+		DATE_TRUNC(ss.sale_date, MONTH) AS month
 	FROM 
-		{{ ref('stg_sales') }}
+		{{ ref('stg_sales') }} AS ss
 	WHERE 
-		EXTRACT(YEAR FROM sale_date) = 2023
+		EXTRACT(YEAR FROM ss.sale_date) = 2023
 	GROUP BY 
-		order_id, month
+		ss.order_id, 
+		DATE_TRUNC(ss.sale_date, MONTH)
 )
 
 SELECT
-	FORMAT_DATE('%Y-%m', month) AS month,
-	ROUND(AVG(total_products), 2) AS avg_products_per_order
+	FORMAT_DATE('%Y-%m', spo.month) AS month,
+	ROUND(AVG(spo.total_products), 2) AS avg_products_per_order
 FROM 
-	sales_per_order
+	sales_per_order AS spo
 GROUP BY 
-	month
+	FORMAT_DATE('%Y-%m', spo.month)
 ORDER BY 
-	month
+	FORMAT_DATE('%Y-%m', spo.month)

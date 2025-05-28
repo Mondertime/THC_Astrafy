@@ -2,13 +2,13 @@
 
 -- Number of orders per month for the year 2023
 SELECT
-	FORMAT_DATE('%Y-%m', order_date) AS month,
-	COUNT(DISTINCT order_id) AS total_orders
+	FORMAT_DATE('%Y-%m', so.order_date) AS month,
+	COUNT(DISTINCT so.order_id) AS total_orders
 FROM 
-	{{ ref('stg_orders') }}
+	{{ ref('stg_orders') }} AS so
 WHERE 
-	EXTRACT(YEAR FROM order_date) = 2023
+	EXTRACT(YEAR FROM so.order_date) = 2023
 GROUP BY 
-	month
+	FORMAT_DATE('%Y-%m', so.order_date)
 ORDER BY 
-	month
+	FORMAT_DATE('%Y-%m', so.order_date)

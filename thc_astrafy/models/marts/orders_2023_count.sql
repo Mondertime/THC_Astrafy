@@ -2,8 +2,8 @@
 
 -- Total number of orders in 2023
 SELECT
-	COUNT(DISTINCT order_id) AS total_orders_2023
+	COUNT(DISTINCT so.order_id) AS total_orders_2023
 FROM 
-	{{ ref('stg_orders') }}
+	{{ ref('stg_orders') }} AS so
 WHERE 
-	EXTRACT(YEAR FROM order_date) = 2023
+	EXTRACT(YEAR FROM so.order_date) = 2023
