@@ -47,7 +47,7 @@ SELECT
 	bo.order_date,
 	bo.net_sales,
 	IFNULL(qo.total_products, 0) AS total_products,
-	po.previous_order_count,
+	IFNULL(po.previous_order_count, 0),
 	CASE 
 		WHEN po.previous_order_count = 0 THEN 'New'
 		WHEN po.previous_order_count BETWEEN 1 AND 3 THEN 'Returning'
