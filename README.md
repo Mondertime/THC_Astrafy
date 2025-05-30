@@ -237,7 +237,7 @@ INNER JOIN
 
 **Sixth exercise**
 
-Here I learned the with could use intricate marts in the model, so I reused the table generated for Exercise#4 :
+Here I learned that I could use intricate marts in the model, so I reused the table generated for Exercise#4 :
 
 `orders_2023_full.sql`
 ```sql
