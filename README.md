@@ -325,7 +325,7 @@ LEFT JOIN
 	past_orders AS po ON bo.order_id = po.order_id
 ```
 
-## Part 2
+## Part 2 : Looker Semantic Layer
 Having never had anything to do with Looker, I first decided to follow Google's training courses to familiarize myself with this tool. Google then delivered this highly honored certification to me :
 
 `https://www.credly.com/badges/e7a51f83-5a10-4e8c-a77a-ce686799e179`
@@ -432,3 +432,45 @@ view: orders_full {
 	}
 }
 ```
+
+## Part 3 : Dashboard
+
+Due to the lack of access to Looker, I used Looker Studio as a workaround to build the visual layer. However, I was unfamiliar with the tool and encountered several usability issues.
+
+I struggled with:
+- Creating **calculated metrics** directly in Looker Studio
+- Differentiating between **global filters** (that apply to all elements) and **individual filters** (applied per chart)
+
+Due to these limitations, I created a very simple and minimal dashboard, with placeholders and intentions explained clearly.
+
+#### KPIs section:
+- **Net Sales**
+- **Average Basket** (Net Sales / Customer Count)
+- **Average Customers per Day**
+- **Net Margin**
+
+I planned to compare each KPI between selected period (N) and previous year (N-1), and show the variation ((N - N-1) / N) colored green/red for quick reading
+
+#### Donut Chart:
+- Displays distribution of customers by segment:
+  - New
+  - Returning
+  - VIP
+
+#### Line Chart:
+- Shows sales over time
+- Intention: overlay Year N and Year N-1 to make the temporal comparison
+- Ideally, the month filter should be ignored for this specific chart to show a full-year trend
+
+---
+
+### What I Would Have Built with Better Tool Access
+
+If I had full access to Looker, and more kownledge of Looker Studio, I would have:
+
+- Created reusable Looker measures (e.g. dynamic N/N-1 logic, net margin, product return rate)
+- Built:
+  - Customer churn analysis by detecting inactive clients
+  - Product-level insights: best sellers, repeat purchase rate
+  - Category segmentation if product metadata was available
+---
