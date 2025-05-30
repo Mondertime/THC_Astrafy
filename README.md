@@ -441,7 +441,7 @@ I struggled with:
 - Creating **calculated metrics** directly in Looker Studio
 - Differentiating between **global filters** (that apply to all elements) and **individual filters** (applied per chart)
 
-Due to these limitations, I created a very simple and minimal dashboard, with placeholders and intentions explained clearly.
+Due to these limitations, I created a very simple and minimal dashboard, with placeholders. I've decided to make a monthly filtered dashboard.
 
 #### KPIs section:
 - **Net Sales**
@@ -474,3 +474,34 @@ If I had full access to Looker, and more kownledge of Looker Studio, I would hav
   - Product-level insights: best sellers, repeat purchase rate
   - Category segmentation if product metadata was available
 ---
+
+**Bonus**
+
+I reflected on how I would approach the bonus question about predicting future sales trends.
+
+Since I had already built a clean and structured dataset (`orders_full`), I would have leveraged this foundation to implement a forecasting pipeline.
+
+**1. Forecasting methodology**
+
+I would have calculated a smoothed value over the last 3 or 6 months to approximate the trend.
+
+Example of what the query could look like:
+
+```sql
+SELECT
+	DATE_TRUNC(order_date, MONTH) AS forecast_month,
+	AVG(net_sales) OVER (
+		ORDER BY DATE_TRUNC(order_date, MONTH)
+		ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
+	) AS smoothed_net_sales
+FROM
+	dbt_thc.orders_full
+WHERE
+	EXTRACT(YEAR FROM order_date) IN (2022, 2023)
+```
+
+This would provide a basic rolling average forecast, which I could then extrapolate visually in Looker Studio using the last known values to project the next month manually.
+
+If more robustness was needed, I could also compute:
+- A trendline from linear regression using SQL logic
+- A weighted average (more recent months weighted higher)
